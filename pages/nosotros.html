@@ -12,52 +12,42 @@
     <header>
 
         <nav>
+            <!-- Icono de menú hamburguesa -->
+        <div class="menu-icon" onclick="toggleMenu()">
+            &#9776;
+        </div>
             <ul>
                 <li><a href="../index.html"> Home</a></li>
-
                 <li><a href="servicios.html"> Servicios</a></li>
-
                 <li><a href="proyectos.html"> Proyectos</a></li>
-
-                <li><a href="nosotros.html"> Nostros</a></li>
-
+                <li><a href="nosotros.html"> Nosotros</a></li>
                 <li><a href="contacto.html"> Contacto</a></li>
             </ul>
         </nav>
-
-        <h2>Sobre Nosotros</h2>
-
     </header>
 
     <main>
+        <h2>Sobre Nosotros</h2>
+
         <article>
-            <h3>¿Quienes Somos?</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem quaerat dolore cumque neque, enim sed
-                harum distinctio repellendus quae magni voluptates ratione. Quibusdam magnam molestiae dolorem
-                recusandae eius odio accusamus.</p>
+            <h3>¿Quiénes Somos?</h3>
+            <p>Somos un equipo dedicado a ofrecer soluciones tecnológicas personalizadas, enfocándonos en la creación de páginas web modernas y estrategias de marketing digital para impulsar tu negocio.</p>
         </article>
 
         <article>
-            <h3>Nuestra filosofia</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta dignissimos natus minima iusto vel neque,
-                voluptate voluptatem, quae tenetur explicabo ad, a non suscipit eaque dolor perferendis eos cum.
-                Reprehenderit!</p>
+            <h3>Nuestra Filosofía</h3>
+            <p>Creemos en la innovación y el compromiso con cada proyecto. Nos apasiona brindar resultados de alta calidad que reflejen la visión y los valores de nuestros clientes.</p>
         </article>
 
         <article>
-            <h3>Compromiso con la calidad</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis obcaecati consectetur cumque architecto
-                minima? Et corporis iure cumque blanditiis, ex ipsam, nulla consequatur officiis voluptate velit
-                quisquam laborum libero qui?</p>
+            <h3>Compromiso con la Calidad</h3>
+            <p>Nuestro enfoque está basado en la excelencia. Cada detalle cuenta, y trabajamos arduamente para asegurar que nuestros clientes reciban el mejor servicio en cada etapa de desarrollo.</p>
         </article>
 
         <article>
-            <h3>Unete a nostros en este viaje digital</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, fuga necessitatibus expedita quas, eaque
-                beatae voluptatem minima tempore magni ut libero tempora eum at ducimus et dignissimos odit aliquid
-                vitae?</p>
+            <h3>Únete a Nosotros en Este Viaje Digital</h3>
+            <p>Te invitamos a ser parte de la evolución digital, creando un impacto positivo y duradero en el mundo online. Juntos, alcanzaremos nuevos niveles de éxito para tu empresa.</p>
         </article>
-
     </main>
 
     <footer>
@@ -69,11 +59,19 @@
         </ul>
 
         <ul class="foot-der">
-            <li> <a href="https://www.instagram.com/santoastargo/" target="_blank">INSTAGRAM</a> </li>
-            <li> <a href="https://www.facebook.com/santo.astargovales.54/" target="_blank">FACEBOOK</a> </li>
-            <li> <a href="https://www.linkedin.com/in/santiago-astargo-vales" target="_blank">LINKEDIN</a> </li>
+            <li><a href="https://www.instagram.com/santoastargo/" target="_blank">INSTAGRAM</a></li>
+            <li><a href="https://www.facebook.com/santo.astargovales.54/" target="_blank">FACEBOOK</a></li>
+            <li><a href="https://www.linkedin.com/in/santiago-astargo-vales" target="_blank">LINKEDIN</a></li>
         </ul>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('show');
+        }
+    </script>
+    
 </body>
 
 </html>

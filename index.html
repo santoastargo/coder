@@ -4,36 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Code Crafters se especializa en la creación de páginas web innovadoras y funcionales.">
     <title>CodeCrafters</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
     <header>
-
-        <nav>
+    
+        <nav id="navMenu">
+            <!-- Icono de menú hamburguesa -->
+        <div class="menu-icon" onclick="toggleMenu()">
+            &#9776;
+        </div>
             <ul>
                 <li><a href="index.html"> Home</a></li>
-
                 <li><a href="./pages/servicios.html"> Servicios</a></li>
-
                 <li><a href="./pages/proyectos.html"> Proyectos</a></li>
-
-                <li><a href="./pages/nosotros.html"> Nostros</a></li>
-
+                <li><a href="./pages/nosotros.html"> Nosotros</a></li>
                 <li><a href="./pages/contacto.html"> Contacto</a></li>
             </ul>
         </nav>
-
         <h1>Code Crafters</h1>
-
     </header>
 
     <main>
         <h2>GENERAMOS SOLUCIONES EFICIENTES PARA TU NEGOCIO</h2>
-        <h3>Nos especializamos en la creación de páginas web innovadoras y funcionales, combinando tecnología de
-            vanguardia con un enfoque personalizado para impulsar el éxito de tu negocio.</h3>
-        <img src="./img/home.png.jpg" alt="home" width="auto" height="auto">
+        <h3>Nos especializamos en la creación de páginas web innovadoras y funcionales, combinando tecnología de vanguardia con un enfoque personalizado para impulsar el éxito de tu negocio.</h3>
+        
+        <!-- Imagen debajo del texto -->
+        <img src="./img/home.png.jpg" alt="home" class="responsive-img">
 
         <p>Conoce todo lo que te podemos ofrecer <a href="./pages/servicios.html">Servicios</a></p>
     </main>
@@ -47,12 +47,19 @@
         </ul>
 
         <ul class="foot-der">
-            <li> <a href="https://www.instagram.com/santoastargo/" target="_blank">INSTAGRAM</a> </li>
-            <li> <a href="https://www.facebook.com/santo.astargovales.54/" target="_blank">FACEBOOK</a> </li>
-            <li> <a href="https://www.linkedin.com/in/santiago-astargo-vales" target="_blank">LINKEDIN</a> </li>
+            <li> <a href="https://www.instagram.com/santoastargo/" target="_blank" aria-label="Visita nuestro Instagram">INSTAGRAM</a> </li>
+            <li> <a href="https://www.facebook.com/santo.astargovales.54/" target="_blank" aria-label="Visita nuestro Facebook">FACEBOOK</a> </li>
+            <li> <a href="https://www.linkedin.com/in/santiago-astargo-vales" target="_blank" aria-label="Visita nuestro LinkedIn">LINKEDIN</a> </li>
         </ul>
-
     </footer>
+
+    <!-- JavaScript para abrir/cerrar el menú hamburguesa -->
+    <script>
+        function toggleMenu() {
+            var navMenu = document.getElementById("navMenu");
+            navMenu.classList.toggle("show");
+        }
+    </script>
 </body>
 
 </html>

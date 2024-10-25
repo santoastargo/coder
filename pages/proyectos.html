@@ -12,32 +12,31 @@
     <header>
 
         <nav>
+           <!-- Icono de menú hamburguesa -->
+        <div class="menu-icon" onclick="toggleMenu()">
+            &#9776;
+        </div>
             <ul>
                 <li><a href="../index.html"> Home</a></li>
-
                 <li><a href="servicios.html"> Servicios</a></li>
-
                 <li><a href="proyectos.html"> Proyectos</a></li>
-
-                <li><a href="nosotros.html"> Nostros</a></li>
-
+                <li><a href="nosotros.html"> Nosotros</a></li>
                 <li><a href="contacto.html"> Contacto</a></li>
             </ul>
         </nav>
-
-        <h2>Nuestros Proyectos</h2>
-        <img src="../img/nuestros.proyectos.png.jpg" alt="nuestros-proyectos">
-
-
     </header>
 
     <main>
+        <h2>Nuestros Proyectos</h2>
+        <h4>En Code Crafters, aportamos nuestra experiencia y creatividad a cada proyecto, garantizando soluciones únicas y efectivas para nuestros clientes.</h4>
+        <img src="../img/nuestros.proyectos.png.jpg" alt="nuestros-proyectos">
+
         <article>
             <h3>Carrefour</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum, possimus ratione quae optio deleniti
                 expedita sint ipsum nobis earum, minus aut quisquam molestiae mollitia quos in, beatae rem iure!
                 Voluptatum?</p>
-            <img src="../img/carrefour.png" alt="carrefour">
+            <img class="responsive-img" src="../img/carrefour.png" alt="carrefour">
         </article>
 
         <article>
@@ -45,7 +44,7 @@
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla facilis maxime fugit eveniet quasi
                 accusamus dolorem, alias iusto veniam. Rerum, itaque pariatur? Modi impedit minus est dolor sapiente
                 repellendus tempora?</p>
-            <img src="../img/adidas.png" alt="adidas">
+            <img class="responsive-img" src="../img/adidas.png" alt="adidas">
         </article>
 
         <article>
@@ -53,7 +52,7 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi dolores officia veniam placeat beatae,
                 dolorem corporis molestias magnam perferendis earum, quia sint officiis quas iusto aut. Deserunt
                 exercitationem sapiente eum.</p>
-            <img src="../img/audi.png" alt="audi">
+            <img class="responsive-img" src="../img/audi.png" alt="audi">
         </article>
     </main>
 
@@ -66,11 +65,21 @@
         </ul>
 
         <ul class="foot-der">
-            <li> <a href="https://www.instagram.com/santoastargo/" target="_blank">INSTAGRAM</a> </li>
-            <li> <a href="https://www.facebook.com/santo.astargovales.54/" target="_blank">FACEBOOK</a> </li>
-            <li> <a href="https://www.linkedin.com/in/santiago-astargo-vales" target="_blank">LINKEDIN</a> </li>
+            <li><a href="https://www.instagram.com/santoastargo/" target="_blank">INSTAGRAM</a></li>
+            <li><a href="https://www.facebook.com/santo.astargovales.54/" target="_blank">FACEBOOK</a></li>
+            <li><a href="https://www.linkedin.com/in/santiago-astargo-vales" target="_blank">LINKEDIN</a></li>
         </ul>
     </footer>
+
+    <script>
+        // Script para mostrar/ocultar el menú en pantallas pequeñas
+        const menuIcon = document.querySelector('.menu-icon');
+        const nav = document.querySelector('nav');
+
+        menuIcon.addEventListener('click', () => {
+            nav.classList.toggle('show');
+        });
+    </script>
 </body>
 
 </html>
