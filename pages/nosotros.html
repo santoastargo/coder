@@ -10,25 +10,25 @@
 
 <body>
     <header>
-
-        <nav>
+        <nav id="navMenu">
             <!-- Icono de menú hamburguesa -->
-        <div class="menu-icon" onclick="toggleMenu()">
-            &#9776;
-        </div>
+            <div class="menu-icon" onclick="toggleMenu()">
+                &#9776;
+            </div>
             <ul>
-                <li><a href="../index.html"> Home</a></li>
-                <li><a href="servicios.html"> Servicios</a></li>
-                <li><a href="proyectos.html"> Proyectos</a></li>
-                <li><a href="nosotros.html"> Nosotros</a></li>
-                <li><a href="contacto.html"> Contacto</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="proyectos.html">Proyectos</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
+        <section class="proyectos-section">
         <h2>Sobre Nosotros</h2>
-
+        <div class="container">
         <article>
             <h3>¿Quiénes Somos?</h3>
             <p>Somos un equipo dedicado a ofrecer soluciones tecnológicas personalizadas, enfocándonos en la creación de páginas web modernas y estrategias de marketing digital para impulsar tu negocio.</p>
@@ -48,6 +48,8 @@
             <h3>Únete a Nosotros en Este Viaje Digital</h3>
             <p>Te invitamos a ser parte de la evolución digital, creando un impacto positivo y duradero en el mundo online. Juntos, alcanzaremos nuevos niveles de éxito para tu empresa.</p>
         </article>
+    </div>
+    </section>
     </main>
 
     <footer>
@@ -66,12 +68,13 @@
     </footer>
 
     <script>
-        function toggleMenu() {
-            const nav = document.querySelector('nav');
-            nav.classList.toggle('show');
-        }
+        const menuIcon = document.querySelector('.menu-icon');
+        const navMenu = document.querySelector('#navMenu ul');
+        
+        menuIcon.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
     </script>
-    
 </body>
 
 </html>

@@ -10,20 +10,23 @@
 
 <body>
     <header>
-
-        <nav>
-            <div class="menu-icon">&#9776;</div> <!-- Icono para el menú en móviles -->
+        <nav id="navMenu">
+            <!-- Icono de menú hamburguesa -->
+            <div class="menu-icon" onclick="toggleMenu()">
+                &#9776;
+            </div>
             <ul>
-                <li><a href="../index.html"> Home</a></li>
-                <li><a href="servicios.html"> Servicios</a></li>
-                <li><a href="proyectos.html"> Proyectos</a></li>
-                <li><a href="nosotros.html"> Nosotros</a></li>
-                <li><a href="contacto.html"> Contacto</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="proyectos.html">Proyectos</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
+        <section class="servicios-section">
         <h2>Nuestros Servicios</h2>
         <h4>En CODE CRAFTERS, ofrecemos una gama de servicios diseñados para satisfacer las necesidades únicas de cada
             cliente. Nuestro enfoque personalizado y nuestra experiencia técnica garantizan resultados que no solo
@@ -54,7 +57,7 @@
                 voluptatem similique saepe quae eligendi!</p>
             <img class="responsive-img" src="../img/app.web.png.jpg" alt="aplicaciones-web">
         </article>
-
+    </section>
     </main>
 
     <footer>
@@ -73,12 +76,11 @@
     </footer>
 
     <script>
-        // Script para mostrar/ocultar el menú en pantallas pequeñas
         const menuIcon = document.querySelector('.menu-icon');
-        const nav = document.querySelector('nav');
-
+        const navMenu = document.querySelector('#navMenu ul');
+        
         menuIcon.addEventListener('click', () => {
-            nav.classList.toggle('show');
+            navMenu.classList.toggle('active');
         });
     </script>
 </body>

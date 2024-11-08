@@ -1,0 +1,240 @@
+// Variables de color y tipografía
+$primary-color: #000;
+$secondary-color: #f0f0f0;
+$link-color: #00d1ff;
+$font-family: 'UNICA', sans-serif;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family;
+  color: $secondary-color;
+  background-color: $primary-color;
+  line-height: 1.6;
+  overflow-x: hidden; // Evita el desplazamiento horizontal
+}
+
+// Encabezado y navegación
+header {
+  background: $primary-color;
+  padding: 1rem;
+  text-align: center;
+
+  h1 {
+    font-size: 2.5rem;
+    color: $secondary-color;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.1em;
+    text-shadow: 0px 4px 10px rgba(0, 209, 255, 0.5); // Sombra tecnológica
+    background: linear-gradient(90deg, $secondary-color, $link-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; // Efecto de texto degradado
+  }
+}
+
+#navMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  .menu-icon {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: $secondary-color;
+
+    @media (max-width: 768px) {
+      display: block;
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+    }
+  }
+
+  ul {
+    display: flex;
+    list-style: none;
+
+    @media (max-width: 768px) {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 3.5rem;
+      left: 0;
+      width: 100%;
+      background: $primary-color;
+      padding: 1rem;
+      border-top: 1px solid $secondary-color;
+
+      &.active {
+        display: flex;
+        transform: translateY(0);
+        transition: transform 0.3s ease-in-out;
+      }
+    }
+
+    li {
+      margin: 0 1rem;
+
+      a {
+        color: $secondary-color;
+        text-decoration: none;
+        font-size: 1.2rem;
+        transition: color 0.3s ease, transform 0.2s ease;
+
+        &:hover {
+          color: $link-color;
+          transform: translateX(5px);
+        }
+      }
+    }
+  }
+}
+
+// Sección de contacto y redes sociales
+.contacto-section {
+  text-align: center;
+  padding: 2rem;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: $link-color;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    color: $secondary-color;
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .social-icon {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+
+    &:hover {
+      transform: scale(1.2);
+      opacity: 0.8;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .social-icon {
+      width: 45px; // Tamaño más pequeño en pantallas pequeñas
+      height: 45px;
+    }
+  }
+}
+
+// Estilos para el formulario
+.formulario {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  label, input, textarea {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+// Footer
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #000;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .foot-izq {
+    color: #fff;
+    font-size: 1rem;
+    list-style: none; // Elimina los puntos de las listas
+    text-align: left;
+
+    li {
+      margin: 0.2rem 0;
+    }
+  }
+
+  .foot-der {
+    color: #fff;
+    font-size: 1rem;
+    list-style: none; // Elimina los puntos de las listas
+    text-align: right; // Alinea el contenido a la derecha en pantallas grandes
+
+    li {
+      margin: 0.2rem 0;
+    }
+  }
+}
+
+// Sección de Servicios
+.servicios-section {
+  text-align: center;
+  padding: 2rem;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: $link-color;
+  }
+}
+
+// Sección de proyectos
+.proyectos-section {
+  text-align: center;
+  padding: 2rem;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: $link-color;
+  }
+}
+
+// Sección de nosotros
+.nosotros-section {
+  text-align: center;
+  padding: 2rem;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: $link-color;
+  }
+}
+// Estilos para los artículos
+.container {
+  display: grid;
+  gap: 1rem; // Espacio entre los artículos
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr; // Dos columnas en pantallas grandes
+  }
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr; // Una columna en pantallas pequeñas
+  }
+}

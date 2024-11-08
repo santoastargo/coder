@@ -10,27 +10,27 @@
 
 <body>
     <header>
-
-        <nav>
-           <!-- Icono de menú hamburguesa -->
-        <div class="menu-icon" onclick="toggleMenu()">
-            &#9776;
-        </div>
+        <nav id="navMenu">
+            <!-- Icono de menú hamburguesa -->
+            <div class="menu-icon" onclick="toggleMenu()">
+                &#9776;
+            </div>
             <ul>
-                <li><a href="../index.html"> Home</a></li>
-                <li><a href="servicios.html"> Servicios</a></li>
-                <li><a href="proyectos.html"> Proyectos</a></li>
-                <li><a href="nosotros.html"> Nosotros</a></li>
-                <li><a href="contacto.html"> Contacto</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="proyectos.html">Proyectos</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
+        <section class="proyectos-section">
         <h2>Nuestros Proyectos</h2>
         <h4>En Code Crafters, aportamos nuestra experiencia y creatividad a cada proyecto, garantizando soluciones únicas y efectivas para nuestros clientes.</h4>
-        <img src="../img/nuestros.proyectos.png.jpg" alt="nuestros-proyectos">
-
+        <img class="responsive-img" src="../img/nuestros.proyectos.png.jpg" alt="nuestros-proyectos">
+        <div class="container">
         <article>
             <h3>Carrefour</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum, possimus ratione quae optio deleniti
@@ -54,6 +54,8 @@
                 exercitationem sapiente eum.</p>
             <img class="responsive-img" src="../img/audi.png" alt="audi">
         </article>
+    </div>
+    </section>
     </main>
 
     <footer>
@@ -72,12 +74,11 @@
     </footer>
 
     <script>
-        // Script para mostrar/ocultar el menú en pantallas pequeñas
         const menuIcon = document.querySelector('.menu-icon');
-        const nav = document.querySelector('nav');
-
+        const navMenu = document.querySelector('#navMenu ul');
+        
         menuIcon.addEventListener('click', () => {
-            nav.classList.toggle('show');
+            navMenu.classList.toggle('active');
         });
     </script>
 </body>

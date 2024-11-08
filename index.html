@@ -11,18 +11,17 @@
 
 <body>
     <header>
-    
         <nav id="navMenu">
             <!-- Icono de menú hamburguesa -->
-        <div class="menu-icon" onclick="toggleMenu()">
-            &#9776;
-        </div>
+            <div class="menu-icon" onclick="toggleMenu()">
+                &#9776;
+            </div>
             <ul>
-                <li><a href="index.html"> Home</a></li>
-                <li><a href="./pages/servicios.html"> Servicios</a></li>
-                <li><a href="./pages/proyectos.html"> Proyectos</a></li>
-                <li><a href="./pages/nosotros.html"> Nosotros</a></li>
-                <li><a href="./pages/contacto.html"> Contacto</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="./pages/servicios.html">Servicios</a></li>
+                <li><a href="./pages/proyectos.html">Proyectos</a></li>
+                <li><a href="./pages/nosotros.html">Nosotros</a></li>
+                <li><a href="./pages/contacto.html">Contacto</a></li>
             </ul>
         </nav>
         <h1>Code Crafters</h1>
@@ -47,18 +46,20 @@
         </ul>
 
         <ul class="foot-der">
-            <li> <a href="https://www.instagram.com/santoastargo/" target="_blank" aria-label="Visita nuestro Instagram">INSTAGRAM</a> </li>
-            <li> <a href="https://www.facebook.com/santo.astargovales.54/" target="_blank" aria-label="Visita nuestro Facebook">FACEBOOK</a> </li>
-            <li> <a href="https://www.linkedin.com/in/santiago-astargo-vales" target="_blank" aria-label="Visita nuestro LinkedIn">LINKEDIN</a> </li>
+            <li><a href="https://www.instagram.com/santoastargo/" target="_blank" aria-label="Visita nuestro Instagram">INSTAGRAM</a></li>
+            <li><a href="https://www.facebook.com/santo.astargovales.54/" target="_blank" aria-label="Visita nuestro Facebook">FACEBOOK</a></li>
+            <li><a href="https://www.linkedin.com/in/santiago-astargo-vales" target="_blank" aria-label="Visita nuestro LinkedIn">LINKEDIN</a></li>
         </ul>
     </footer>
 
     <!-- JavaScript para abrir/cerrar el menú hamburguesa -->
     <script>
-        function toggleMenu() {
-            var navMenu = document.getElementById("navMenu");
-            navMenu.classList.toggle("show");
-        }
+        const menuIcon = document.querySelector('.menu-icon');
+        const navMenu = document.querySelector('#navMenu ul');
+
+        menuIcon.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
     </script>
 </body>
 
