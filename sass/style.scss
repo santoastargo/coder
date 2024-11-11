@@ -3,7 +3,9 @@ $primary-color: #000;
 $secondary-color: #f0f0f0;
 $link-color: #00d1ff;
 $font-family: 'UNICA', sans-serif;
+$transition-speed: 0.3s ease-in-out; // Velocidad de transición global
 
+// Estilos generales
 * {
   margin: 0;
   padding: 0;
@@ -16,6 +18,40 @@ body {
   background-color: $primary-color;
   line-height: 1.6;
   overflow-x: hidden; // Evita el desplazamiento horizontal
+  animation: fadeIn 1s ease-in; // Animación de entrada para el cuerpo
+}
+
+// Animación de aparición
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// Imágenes responsivas
+.responsive-img {
+  width: 100%; // Hace que la imagen ocupe todo el contenedor
+  height: auto; // Mantiene la proporción de la imagen
+  max-width: 800px; // Tamaño máximo de la imagen en pantallas grandes
+  margin: 0 auto; // Centra la imagen horizontalmente
+  transition: transform $transition-speed;
+  position: relative; // Asegura que la imagen no tape el texto al hacer hover
+  z-index: 1; // Hace que la imagen esté por debajo del contenido al hacer hover
+
+  &:hover {
+    transform: scale(1.05); // Animación de zoom al pasar el ratón
+  }
+}
+
+// Ajustes para pantallas pequeñas
+@media (max-width: 768px) {
+  .responsive-img {
+    max-width: 100%; // Asegura que en pantallas pequeñas la imagen ocupe el 100% del contenedor
+    height: auto; // Mantiene la proporción
+  }
 }
 
 // Encabezado y navegación
@@ -23,6 +59,7 @@ header {
   background: $primary-color;
   padding: 1rem;
   text-align: center;
+  position: relative;
 
   h1 {
     font-size: 2.5rem;
@@ -32,8 +69,19 @@ header {
     letter-spacing: 0.1em;
     text-shadow: 0px 4px 10px rgba(0, 209, 255, 0.5); // Sombra tecnológica
     background: linear-gradient(90deg, $secondary-color, $link-color);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; // Efecto de texto degradado
+    -webkit-background-clip: text; // Para navegadores Webkit
+    background-clip: text; // Para navegadores modernos
+    color: transparent; // Hace que el fondo sea visible en el texto
+    animation: glow 1.5s infinite alternate; // Animación de resplandor en el título
+  }
+
+  @keyframes glow {
+    0% {
+      text-shadow: 0 0 5px $link-color, 0 0 10px $link-color, 0 0 15px $link-color;
+    }
+    100% {
+      text-shadow: 0 0 10px $link-color, 0 0 20px $link-color, 0 0 30px $link-color;
+    }
   }
 }
 
@@ -54,12 +102,19 @@ header {
       position: absolute;
       left: 1rem;
       top: 1rem;
+      transition: transform $transition-speed;
+
+      &:hover {
+        transform: rotate(90deg); // Animación de rotación al pasar el ratón
+      }
     }
   }
 
   ul {
     display: flex;
     list-style: none;
+    margin-top: 1rem;
+    padding-top: 2rem;
 
     @media (max-width: 768px) {
       display: none;
@@ -81,16 +136,32 @@ header {
 
     li {
       margin: 0 1rem;
+      position: relative;
 
       a {
         color: $secondary-color;
         text-decoration: none;
         font-size: 1.2rem;
-        transition: color 0.3s ease, transform 0.2s ease;
+        transition: color $transition-speed, transform $transition-speed;
 
         &:hover {
           color: $link-color;
           transform: translateX(5px);
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: $link-color;
+          transition: width $transition-speed;
+        }
+
+        &:hover::before {
+          width: 100%;
         }
       }
     }
@@ -101,11 +172,27 @@ header {
 .contacto-section {
   text-align: center;
   padding: 2rem;
+  animation: fadeIn 1s ease-in;
 
   h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
     color: $link-color;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    animation: bounce 1.5s infinite alternate;
+  }
+
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
   }
 
   h3 {
@@ -119,24 +206,26 @@ header {
     justify-content: center;
     gap: 1rem;
     margin-top: 2rem;
-  }
+    opacity: 0;
+    animation: fadeIn 1.5s forwards 0.5s;
 
-  .social-icon {
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-
-    &:hover {
-      transform: scale(1.2);
-      opacity: 0.8;
-    }
-  }
-
-  @media (max-width: 768px) {
     .social-icon {
-      width: 45px; // Tamaño más pequeño en pantallas pequeñas
-      height: 45px;
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      transition: transform $transition-speed, opacity $transition-speed;
+
+      &:hover {
+        transform: scale(1.2);
+        opacity: 0.8;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .social-icon {
+        width: 45px;
+        height: 45px;
+      }
     }
   }
 }
@@ -151,16 +240,32 @@ header {
   label, input, textarea {
     width: 100%;
     max-width: 300px;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    background: #333;
+    border: 1px solid $link-color;
+    color: $secondary-color;
+    border-radius: 5px;
+    transition: background-color $transition-speed;
+
+    &:focus {
+      background-color: $primary-color;
+      border-color: $link-color;
+    }
   }
 }
 
-// Footer
 footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
   background-color: #000;
+  position: relative;
+  width: 100%;
+  z-index: 10;
+  margin-bottom: 0; /* Eliminar margen adicional debajo del footer */
+  padding-bottom: 0; /* Eliminar relleno adicional en la parte inferior */
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -170,7 +275,7 @@ footer {
   .foot-izq {
     color: #fff;
     font-size: 1rem;
-    list-style: none; // Elimina los puntos de las listas
+    list-style: none;
     text-align: left;
 
     li {
@@ -181,19 +286,51 @@ footer {
   .foot-der {
     color: #fff;
     font-size: 1rem;
-    list-style: none; // Elimina los puntos de las listas
-    text-align: right; // Alinea el contenido a la derecha en pantallas grandes
-
-    li {
-      margin: 0.2rem 0;
-    }
+    list-style: none;
+    display: flex;
+    flex-direction: row; /* Usamos fila para que los enlaces estén en línea */
+    gap: 1rem; /* Espaciado entre los enlaces */
+    justify-content: center; /* Alineación centrada */
+    align-items: center;
+    margin-top: 1rem; /* Un pequeño margen superior para separarlo del contenido */
+  }
+  
+  .foot-der li {
+    text-align: center;
+  }
+  
+  .foot-der a {
+    color: #fff;
+    font-size: 1.2rem; /* Tamaño de los enlaces */
+    text-decoration: none; /* Eliminamos el subrayado por defecto */
+    transition: color 0.3s ease, transform 0.3s ease; /* Transición suave para hover */
+  }
+  
+  .foot-der a:hover {
+    color: #00aaff; /* Color de hover, puedes personalizarlo */
+    transform: scale(1.1); /* Aumenta el tamaño al pasar el ratón */
+  }
+  
+  .foot-der .social-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 50%; /* Hace los enlaces redondeados */
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo sutil */
+  }
+  
+  .foot-der .social-link:hover {
+    background-color: rgba(255, 255, 255, 0.4); /* Fondo de hover */
   }
 }
+
 
 // Sección de Servicios
 .servicios-section {
   text-align: center;
   padding: 2rem;
+  animation: fadeIn 1.5s ease-in;
 
   h2 {
     font-size: 2rem;
@@ -202,39 +339,81 @@ footer {
   }
 }
 
-// Sección de proyectos
+// Sección de Proyectos
 .proyectos-section {
-  text-align: center;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 1.5s ease-in;
 
   h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
     color: $link-color;
   }
-}
 
-// Sección de nosotros
-.nosotros-section {
-  text-align: center;
-  padding: 2rem;
-
-  h2 {
-    font-size: 2rem;
+  .proyecto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 800px;
     margin-bottom: 1rem;
-    color: $link-color;
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      transition: transform $transition-speed;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
   }
 }
-// Estilos para los artículos
 .container {
   display: grid;
-  gap: 1rem; // Espacio entre los artículos
+  grid-template-columns: repeat(3, 1fr); // Tres columnas en pantallas grandes
+  gap: 2rem; // Espacio entre las columnas
+  padding: 2rem;
+  margin-bottom: 0; // Para evitar espacio extra abajo
 
-  @media (min-width: 768px) {
-    grid-template-columns: 1fr 1fr; // Dos columnas en pantallas grandes
-  }
-
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     grid-template-columns: 1fr; // Una columna en pantallas pequeñas
+  }
+}
+
+.index {
+  p {
+    font-size: 1rem;
+    color: #d4af37; /* Color dorado para el texto */
+    text-align: center;
+    margin-top: 2rem;
+
+    a {
+      text-decoration: none;
+      color: #000; /* Texto dentro del botón en negro */
+      background-color: #fff; /* Botón blanco */
+      padding: 0.8rem 1.5rem; /* Tamaño más pequeño */
+      font-size: 1rem; /* Texto un poco más pequeño */
+      font-weight: bold;
+      border-radius: 30px; /* Bordes redondeados */
+      text-transform: uppercase; /* Texto en mayúsculas para un toque más dinámico */
+      display: inline-block;
+      transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
+      margin-top: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para el botón */
+    }
+
+    a:hover {
+      background-color: #d4af37; /* Color más claro del botón al hacer hover */
+      transform: translateY(-3px); /* Desplazamiento sutil al pasar el ratón */
+    }
+
+    a:active {
+      transform: translateY(1px); /* Efecto de presionar el botón */
+    }
   }
 }

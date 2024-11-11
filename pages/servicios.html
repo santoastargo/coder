@@ -33,7 +33,7 @@
             cumplen, sino que superan las expectativas.</h4>
 
         <img class="responsive-img" src="../img/servicios.png.png" alt="servicios">
-
+<div class="container">
         <article>
             <h3>DESARROLLO</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, quia optio? Deleniti, esse! Doloribus,
@@ -57,6 +57,7 @@
                 voluptatem similique saepe quae eligendi!</p>
             <img class="responsive-img" src="../img/app.web.png.jpg" alt="aplicaciones-web">
         </article>
+    </div>
     </section>
     </main>
 
@@ -77,11 +78,12 @@
 
     <script>
         const menuIcon = document.querySelector('.menu-icon');
-        const navMenu = document.querySelector('#navMenu ul');
-        
-        menuIcon.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
+    const navMenu = document.querySelector('#navMenu ul');
+
+    menuIcon.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        navMenu.style.zIndex = "21"; // Asegura que el menú siempre esté al frente al desplegarse
+    });
     </script>
 </body>
 

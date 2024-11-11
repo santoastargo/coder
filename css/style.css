@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -10,12 +11,41 @@ body {
   background-color: #000;
   line-height: 1.6;
   overflow-x: hidden;
+  animation: fadeIn 1s ease-in;
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.responsive-img {
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+  margin: 0 auto;
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+  z-index: 1;
+}
+.responsive-img:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .responsive-img {
+    max-width: 100%;
+    height: auto;
+  }
+}
 header {
   background: #000;
   padding: 1rem;
   text-align: center;
+  position: relative;
 }
 header h1 {
   font-size: 2.5rem;
@@ -26,7 +56,17 @@ header h1 {
   text-shadow: 0px 4px 10px rgba(0, 209, 255, 0.5);
   background: linear-gradient(90deg, #f0f0f0, #00d1ff);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  animation: glow 1.5s infinite alternate;
+}
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px #00d1ff, 0 0 10px #00d1ff, 0 0 15px #00d1ff;
+  }
+  100% {
+    text-shadow: 0 0 10px #00d1ff, 0 0 20px #00d1ff, 0 0 30px #00d1ff;
+  }
 }
 
 #navMenu {
@@ -47,11 +87,17 @@ header h1 {
     position: absolute;
     left: 1rem;
     top: 1rem;
+    transition: transform 0.3s ease-in-out;
+  }
+  #navMenu .menu-icon:hover {
+    transform: rotate(90deg);
   }
 }
 #navMenu ul {
   display: flex;
   list-style: none;
+  margin-top: 1rem;
+  padding-top: 2rem;
 }
 @media (max-width: 768px) {
   #navMenu ul {
@@ -73,26 +119,55 @@ header h1 {
 }
 #navMenu ul li {
   margin: 0 1rem;
+  position: relative;
 }
 #navMenu ul li a {
   color: #f0f0f0;
   text-decoration: none;
   font-size: 1.2rem;
-  transition: color 0.3s ease, transform 0.2s ease;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 #navMenu ul li a:hover {
   color: #00d1ff;
   transform: translateX(5px);
 }
+#navMenu ul li a::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #00d1ff;
+  transition: width 0.3s ease-in-out;
+}
+#navMenu ul li a:hover::before {
+  width: 100%;
+}
 
 .contacto-section {
   text-align: center;
   padding: 2rem;
+  animation: fadeIn 1s ease-in;
 }
 .contacto-section h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
   color: #00d1ff;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  animation: bounce 1.5s infinite alternate;
+}
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 .contacto-section h3 {
   font-size: 1.4rem;
@@ -104,19 +179,21 @@ header h1 {
   justify-content: center;
   gap: 1rem;
   margin-top: 2rem;
+  opacity: 0;
+  animation: fadeIn 1.5s forwards 0.5s;
 }
-.contacto-section .social-icon {
+.contacto-section .social-icons .social-icon {
   width: 100px;
   height: 100px;
   object-fit: contain;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
-.contacto-section .social-icon:hover {
+.contacto-section .social-icons .social-icon:hover {
   transform: scale(1.2);
   opacity: 0.8;
 }
 @media (max-width: 768px) {
-  .contacto-section .social-icon {
+  .contacto-section .social-icons .social-icon {
     width: 45px;
     height: 45px;
   }
@@ -131,6 +208,17 @@ header h1 {
 .formulario label, .formulario input, .formulario textarea {
   width: 100%;
   max-width: 300px;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  background: #333;
+  border: 1px solid #00d1ff;
+  color: #f0f0f0;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
+}
+.formulario label:focus, .formulario input:focus, .formulario textarea:focus {
+  background-color: #000;
+  border-color: #00d1ff;
 }
 
 footer {
@@ -139,6 +227,11 @@ footer {
   align-items: center;
   padding: 1rem 2rem;
   background-color: #000;
+  position: relative;
+  width: 100%;
+  z-index: 10;
+  margin-bottom: 0; /* Eliminar margen adicional debajo del footer */
+  padding-bottom: 0; /* Eliminar relleno adicional en la parte inferior */
 }
 @media (max-width: 768px) {
   footer {
@@ -159,15 +252,42 @@ footer .foot-der {
   color: #fff;
   font-size: 1rem;
   list-style: none;
-  text-align: right;
+  display: flex;
+  flex-direction: row; /* Usamos fila para que los enlaces estén en línea */
+  gap: 1rem; /* Espaciado entre los enlaces */
+  justify-content: center; /* Alineación centrada */
+  align-items: center;
+  margin-top: 1rem; /* Un pequeño margen superior para separarlo del contenido */
 }
 footer .foot-der li {
-  margin: 0.2rem 0;
+  text-align: center;
+}
+footer .foot-der a {
+  color: #fff;
+  font-size: 1.2rem; /* Tamaño de los enlaces */
+  text-decoration: none; /* Eliminamos el subrayado por defecto */
+  transition: color 0.3s ease, transform 0.3s ease; /* Transición suave para hover */
+}
+footer .foot-der a:hover {
+  color: #00aaff; /* Color de hover, puedes personalizarlo */
+  transform: scale(1.1); /* Aumenta el tamaño al pasar el ratón */
+}
+footer .foot-der .social-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 50%; /* Hace los enlaces redondeados */
+  background-color: rgba(255, 255, 255, 0.2); /* Fondo sutil */
+}
+footer .foot-der .social-link:hover {
+  background-color: rgba(255, 255, 255, 0.4); /* Fondo de hover */
 }
 
 .servicios-section {
   text-align: center;
   padding: 2rem;
+  animation: fadeIn 1.5s ease-in;
 }
 .servicios-section h2 {
   font-size: 2rem;
@@ -176,38 +296,74 @@ footer .foot-der li {
 }
 
 .proyectos-section {
-  text-align: center;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 1.5s ease-in;
 }
 .proyectos-section h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
   color: #00d1ff;
 }
-
-.nosotros-section {
-  text-align: center;
-  padding: 2rem;
-}
-.nosotros-section h2 {
-  font-size: 2rem;
+.proyectos-section .proyecto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  max-width: 800px;
   margin-bottom: 1rem;
-  color: #00d1ff;
+}
+.proyectos-section .proyecto img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+.proyectos-section .proyecto img:hover {
+  transform: scale(1.05);
 }
 
 .container {
   display: grid;
-  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 2rem;
+  margin-bottom: 0;
 }
-@media (min-width: 768px) {
-  .container {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .container {
     grid-template-columns: 1fr;
   }
+}
+
+.index p {
+  font-size: 1rem;
+  color: #d4af37; /* Color dorado para el texto */
+  text-align: center;
+  margin-top: 2rem;
+}
+.index p a {
+  text-decoration: none;
+  color: #000; /* Texto dentro del botón en negro */
+  background-color: #fff; /* Botón blanco */
+  padding: 0.8rem 1.5rem; /* Tamaño más pequeño */
+  font-size: 1rem; /* Texto un poco más pequeño */
+  font-weight: bold;
+  border-radius: 30px; /* Bordes redondeados */
+  text-transform: uppercase; /* Texto en mayúsculas para un toque más dinámico */
+  display: inline-block;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
+  margin-top: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para el botón */
+}
+.index p a:hover {
+  background-color: #d4af37; /* Color más claro del botón al hacer hover */
+  transform: translateY(-3px); /* Desplazamiento sutil al pasar el ratón */
+}
+.index p a:active {
+  transform: translateY(1px); /* Efecto de presionar el botón */
 }
 
 /*# sourceMappingURL=style.css.map */
