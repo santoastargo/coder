@@ -220,6 +220,27 @@ header h1 {
   background-color: #000;
   border-color: #00d1ff;
 }
+.formulario button[type=submit] {
+  width: 100%;
+  max-width: 300px;
+  padding: 1.2rem;
+  background-color: #00d1ff;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease, transform 0.2s ease;
+  text-transform: uppercase;
+}
+.formulario button[type=submit]:hover {
+  background-color: rgb(51, 218.2, 255);
+  transform: translateY(-5px);
+}
+.formulario button[type=submit]:active {
+  transform: translateY(0);
+}
 
 footer {
   display: flex;
@@ -344,7 +365,7 @@ footer .foot-der .social-link:hover {
   text-align: center;
   margin-top: 2rem;
 }
-.index p a {
+.index a {
   text-decoration: none;
   color: #000; /* Texto dentro del botón en negro */
   background-color: #fff; /* Botón blanco */
@@ -358,12 +379,26 @@ footer .foot-der .social-link:hover {
   margin-top: 1rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para el botón */
 }
-.index p a:hover {
+.index a:hover {
   background-color: #d4af37; /* Color más claro del botón al hacer hover */
   transform: translateY(-3px); /* Desplazamiento sutil al pasar el ratón */
 }
-.index p a:active {
+.index a:active {
   transform: translateY(1px); /* Efecto de presionar el botón */
+}
+.index .logo {
+  width: 150px;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease-in-out;
+}
+.index .logo:hover {
+  transform: scale(1.1);
+}
+@media (max-width: 768px) {
+  .index .logo {
+    width: 120px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
