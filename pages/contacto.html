@@ -5,7 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - CODE CRAFTERS</title>
+    <meta name="description" content="Ponte en contacto con Code Crafters para obtener soluciones tecnológicas personalizadas y servicios de desarrollo web.">
+    <meta name="keywords" content="contacto, soluciones tecnológicas, desarrollo web, marketing digital, CODE CRAFTERS">
+    <meta name="author" content="CODE CRAFTERS">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="canonical" href="https://www.codecrafters.com/contacto.html">
+    <meta property="og:title" content="Contacto - CODE CRAFTERS">
+    <meta property="og:description" content="Ponte en contacto con Code Crafters para obtener soluciones tecnológicas personalizadas y servicios de desarrollo web.">
+    <meta property="og:url" content="https://www.codecrafters.com/contacto.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="../img/logo.png">
 </head>
 
 <body>
@@ -13,48 +22,48 @@
         <nav id="navMenu">
             <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
             <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="servicios.html">Servicios</a></li>
-                <li><a href="proyectos.html">Proyectos</a></li>
-                <li><a href="nosotros.html">Nosotros</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="../index.html" title="Página de inicio">Home</a></li>
+                <li><a href="servicios.html" title="Nuestros servicios">Servicios</a></li>
+                <li><a href="proyectos.html" title="Nuestros proyectos">Proyectos</a></li>
+                <li><a href="nosotros.html" title="Conoce más sobre nosotros">Nosotros</a></li>
+                <li><a href="contacto.html" title="Contáctanos">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section class="contacto-section">
-            <h2>Contáctanos</h2>
+            <h1>Contáctanos</h1>
             <h4>Puedes contactarnos a través de cualquiera de nuestros canales digitales.</h4>
 
             <div class="social-icons">
-                <a href="https://wa.me/1234567890" target="_blank">
+                <a href="https://wa.me/541551465542" target="_blank" title="Contáctanos por WhatsApp">
                     <img src="../img/whatsapp.png" alt="whatsapp" class="social-icon">
                 </a>
-                <a href="https://www.facebook.com/yourprofile" target="_blank">
+                <a href="https://www.facebook.com/santo.astargovales.54" target="_blank" title="Síguenos en Facebook">
                     <img src="../img/facebook.png" alt="facebook" class="social-icon">
                 </a>
-                <a href="https://www.linkedin.com/in/yourprofile" target="_blank">
+                <a href="https://www.linkedin.com/in/santiago-astargo-vales" target="_blank" title="Conéctate con nosotros en LinkedIn">
                     <img src="../img/linkedin.png" alt="linkedin" class="social-icon">
                 </a>
-                <a href="https://www.instagram.com/yourprofile" target="_blank">
+                <a href="https://www.instagram.com/santoastargo" target="_blank" title="Síguenos en Instagram">
                     <img src="../img/instagram.png" alt="instagram" class="social-icon">
                 </a>
             </div>
 
-            <h3>Envíanos un mensaje</h3>
+            <h2>Envíanos un mensaje</h2>
             <form action="#" method="post" class="formulario">
                 <label for="nombre">Nombre:</label><br>
-                <input type="text" id="nombre" name="nombre" required><br><br>
+                <input type="text" id="nombre" name="nombre" required placeholder="Ingresa tu nombre"><br><br>
 
                 <label for="apellido">Apellido:</label><br>
-                <input type="text" id="apellido" name="apellido" required><br><br>
+                <input type="text" id="apellido" name="apellido" required placeholder="Ingresa tu apellido"><br><br>
 
                 <label for="asunto">Asunto:</label><br>
-                <input type="text" id="asunto" name="asunto" required><br><br>
+                <input type="text" id="asunto" name="asunto" required placeholder="Ingresa el asunto"><br><br>
 
                 <label for="mensaje">Déjanos tu mensaje aquí:</label><br>
-                <textarea id="mensaje" name="mensaje" rows="5" cols="40" required></textarea><br><br>
+                <textarea id="mensaje" name="mensaje" rows="5" cols="40" required placeholder="Escribe tu mensaje"></textarea><br><br>
 
                 <button type="submit">Enviar</button>
             </form>
@@ -70,20 +79,20 @@
         </ul>
 
         <ul class="foot-der">
-            <li><a href="https://www.instagram.com/santoastargo/" target="_blank">INSTAGRAM</a></li>
-            <li><a href="https://www.facebook.com/santo.astargovales.54/" target="_blank">FACEBOOK</a></li>
-            <li><a href="https://www.linkedin.com/in/santiago-astargo-vales" target="_blank">LINKEDIN</a></li>
+            <li><a href="https://www.instagram.com/santoastargo/" target="_blank" title="Síguenos en Instagram">INSTAGRAM</a></li>
+            <li><a href="https://www.facebook.com/santo.astargovales.54/" target="_blank" title="Síguenos en Facebook">FACEBOOK</a></li>
+            <li><a href="https://www.linkedin.com/in/santiago-astargo-vales" target="_blank" title="Conéctate en LinkedIn">LINKEDIN</a></li>
         </ul>
     </footer>
 
     <script>
-     const menuIcon = document.querySelector('.menu-icon');
-    const navMenu = document.querySelector('#navMenu ul');
+        const menuIcon = document.querySelector('.menu-icon');
+        const navMenu = document.querySelector('#navMenu ul');
 
-    menuIcon.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        navMenu.style.zIndex = "21"; // Asegura que el menú siempre esté al frente al desplegarse
-    });
+        menuIcon.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navMenu.style.zIndex = "21"; // Asegura que el menú siempre esté al frente al desplegarse
+        });
     </script>
 
 </body>

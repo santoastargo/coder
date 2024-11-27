@@ -253,7 +253,33 @@ header {
       border-color: $link-color;
     }
   }
+
+  // Estilo para el botón
+  button[type="submit"] {
+    width: 100%;
+    max-width: 300px;
+    padding: 1.2rem;
+    background-color: $link-color;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px; // Bordes más redondeados para un look más moderno
+    cursor: pointer;
+    transition: all 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase; // Texto en mayúsculas para un toque más tecnológico
+
+    &:hover {
+      background-color: lighten($link-color, 10%); // Aclarar el color al pasar el ratón
+      transform: translateY(-5px); // Efecto de hover más dinámico
+    }
+
+    &:active {
+      transform: translateY(0); // Efecto de clic
+    }
+  }
 }
+
 
 footer {
   display: flex;
@@ -391,7 +417,7 @@ footer {
     color: #d4af37; /* Color dorado para el texto */
     text-align: center;
     margin-top: 2rem;
-
+  }
     a {
       text-decoration: none;
       color: #000; /* Texto dentro del botón en negro */
@@ -414,6 +440,21 @@ footer {
 
     a:active {
       transform: translateY(1px); /* Efecto de presionar el botón */
-    }
+    } 
+    // Ajuste del logo usando clase .logo
+// Estilo para el logo
+.logo {
+  width: 150px; // Tamaño ajustado del logo
+  height: auto; // Mantener la proporción
+  object-fit: contain; // Asegura que el logo se ajusta bien sin distorsión
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1); // Efecto de aumento al pasar el ratón
   }
+
+  @media (max-width: 768px) {
+    width: 120px; // Reducir tamaño en pantallas pequeñas
+  }
+}
 }
