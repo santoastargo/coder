@@ -195,12 +195,6 @@ header {
     }
   }
 
-  h3 {
-    font-size: 1.4rem;
-    margin-top: 2rem;
-    color: $secondary-color;
-  }
-
   .social-icons {
     display: flex;
     justify-content: center;
@@ -363,6 +357,17 @@ footer {
     margin-bottom: 1rem;
     color: $link-color;
   }
+
+  h3 {
+    font-size: 1.2rem; /* Ajustamos el tamaño para que sea más sutil */
+    margin-top: 2rem;
+    color: #6ec1e4; /* Un color celeste moderno */
+    font-weight: 700; /* Negrita */
+    text-transform: uppercase; /* (Opcional) Si quieres que todo esté en mayúsculas */
+    letter-spacing: 0.05rem; /* Pequeño espaciado para darle estilo */
+    border-left: 4px solid #6ec1e4; /* Línea decorativa al lado */
+    padding-left: 1rem; /* Espaciado interno para separar el texto de la línea */
+  }
 }
 
 // Sección de Proyectos
@@ -379,6 +384,17 @@ footer {
     color: $link-color;
   }
 
+  h3 {
+    font-size: 1.2rem; /* Ajustamos el tamaño para que sea más sutil */
+    margin-top: 2rem;
+    color: #6ec1e4; /* Un color celeste moderno */
+    font-weight: 700; /* Negrita */
+    text-transform: uppercase; /* (Opcional) Si quieres que todo esté en mayúsculas */
+    letter-spacing: 0.05rem; /* Pequeño espaciado para darle estilo */
+    border-left: 4px solid #6ec1e4; /* Línea decorativa al lado */
+    padding-left: 1rem; /* Espaciado interno para separar el texto de la línea */
+  }
+  
   .proyecto {
     display: flex;
     justify-content: center;
@@ -458,3 +474,4 @@ footer {
   }
 }
 }
+

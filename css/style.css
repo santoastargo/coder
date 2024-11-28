@@ -169,11 +169,6 @@ header h1 {
     transform: translateY(0);
   }
 }
-.contacto-section h3 {
-  font-size: 1.4rem;
-  margin-top: 2rem;
-  color: #f0f0f0;
-}
 .contacto-section .social-icons {
   display: flex;
   justify-content: center;
@@ -315,6 +310,16 @@ footer .foot-der .social-link:hover {
   margin-bottom: 1rem;
   color: #00d1ff;
 }
+.servicios-section h3 {
+  font-size: 1.2rem; /* Ajustamos el tamaño para que sea más sutil */
+  margin-top: 2rem;
+  color: #6ec1e4; /* Un color celeste moderno */
+  font-weight: 700; /* Negrita */
+  text-transform: uppercase; /* (Opcional) Si quieres que todo esté en mayúsculas */
+  letter-spacing: 0.05rem; /* Pequeño espaciado para darle estilo */
+  border-left: 4px solid #6ec1e4; /* Línea decorativa al lado */
+  padding-left: 1rem; /* Espaciado interno para separar el texto de la línea */
+}
 
 .proyectos-section {
   padding: 2rem;
@@ -327,6 +332,16 @@ footer .foot-der .social-link:hover {
   font-size: 2rem;
   margin-bottom: 1rem;
   color: #00d1ff;
+}
+.proyectos-section h3 {
+  font-size: 1.2rem; /* Ajustamos el tamaño para que sea más sutil */
+  margin-top: 2rem;
+  color: #6ec1e4; /* Un color celeste moderno */
+  font-weight: 700; /* Negrita */
+  text-transform: uppercase; /* (Opcional) Si quieres que todo esté en mayúsculas */
+  letter-spacing: 0.05rem; /* Pequeño espaciado para darle estilo */
+  border-left: 4px solid #6ec1e4; /* Línea decorativa al lado */
+  padding-left: 1rem; /* Espaciado interno para separar el texto de la línea */
 }
 .proyectos-section .proyecto {
   display: flex;
